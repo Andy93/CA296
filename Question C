@@ -1,0 +1,17 @@
+//Write an example of an interrupt that gets interrupted
+
+//Start of Code:
+
+  JMP START;
+  DB 5A;
+  
+START:
+  STI;
+  
+LOOP:
+  JMP LOOP;
+  
+  ORG 5A;
+  MOV AL,1;
+  IRET;
+END;
