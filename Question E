@@ -1,0 +1,17 @@
+//Write a program to split the digits in AL into BL and CL. E.g. if AL contains E9
+//then BL should contain a 0E and CL should contain a 09
+
+//Start of Code:
+
+  MOV AL, E9;
+  
+  PUSH AL; push to stack and make backup
+  AND AL, OF;
+  MOV CL, AL; copy the value to CL
+  
+  POP AL; restore AL back to original value
+  AND AL, F0;
+  MOV BL,AL ; copy the value to BL
+  DIV BL, 10
+  
+END
