@@ -1,0 +1,11 @@
+// Write a program to rotate the number 1 around register AL clockwise
+//(i.e using ROR in a loop).
+
+//Start of code :
+
+  MOV AL, 1; 1 will be rotated
+LOOP:
+  ROR AL; rotation of AL
+  JMP LOOP; jumping back to LOOP
+
+END;
