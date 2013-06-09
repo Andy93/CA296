@@ -1,0 +1,25 @@
+//Write a program to demonstrate a long absolute jump by using RET hack
+
+//Start of Code:
+
+LOOP1:
+  CALL 50;
+  JMP LOOP1;
+  
+LOOP2:
+  CALL 50;
+  JMP LOOP2
+  
+  ORG 50;
+  POP AL;
+  CMP AL, 2;
+  JZ TWO;
+  MOV AL, 2;
+  JMP RETURN;
+TWO:
+  MOV AL, 6;
+RETURN:
+  PUSH AL;
+  RET;
+  
+END;
