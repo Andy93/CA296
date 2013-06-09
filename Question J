@@ -1,0 +1,38 @@
+//Use the seven segment display , write a program to count down from 09 to 00 , RHS obviously 
+
+//Start of Code:
+
+  MOV BL, 90;
+  
+LOOP:
+  MOV AL, [BL];
+  CMP AL, 00; check if null i.e. end of table marker
+  JZ FINISH;  if so its finish
+  OUT 20; display the didget
+  INC BL;
+  JMP LOOP;
+  
+FINISH:
+  
+  HALT
+  
+  
+  
+
+  ORG 90
+  DB F9; 9
+  DB FF; 8
+  DB 71; 7
+  DB DF; 6
+  DB DB; 5
+  DB E9; 4
+  DB F3; 3
+  DB B7; 2
+  DB 61; 1
+  DB 7F; 0
+  DB 00; END OF TABLE
+  
+END:
+  
+  END;
+  
