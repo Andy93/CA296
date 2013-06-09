@@ -1,0 +1,22 @@
+//Write a program to put a number in the range 00-0F into AL , then using a table , find the ASCII
+//code required to display the corresponding character on the VDU . 0F ---> 'F'
+
+//Start of Code:
+
+START:
+  
+  MOV AL, 09;
+  MOV AL, 0A;
+  JNS LETTER;
+  ADD AL, 30;
+  MOV [C0], AL;
+  JMP END;
+  
+LETTER:
+
+  ADD AL, 37;
+  MOV [C0], AL;
+
+END:
+
+  END;
