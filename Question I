@@ -1,0 +1,37 @@
+//Write a program to count Lowercase vowels in a null-terminated string on the VDU . You can put the count into AL.
+// null-terminated in 00
+
+//Start of Code:
+
+  JMP START;
+  ORG C0;
+  DB "Hello";
+  DB 00;
+  
+  ORG 00;
+  
+START:
+
+  MOV AL, C0; al is mem counter
+  MOV CL, 00; cl is lowercase counter
+  
+LOOP:
+
+  MOV BL, [AL];
+  CMP BL, 00;
+  JZ END;
+  CMP BL, 61;
+  JS OTHER; if less than
+  CMP BL, 7B;
+  JNS OTHER; if greater
+  INC CL;
+  
+OTHER:
+
+  INC AL; get next memory location
+  JMP LOOP; loop jump
+  
+END:
+
+  MOV AL, CL; store count
+  END;
