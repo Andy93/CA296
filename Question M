@@ -1,0 +1,23 @@
+//Write a program to count how many 00s are in memory . The count should be place in AL.
+
+//Start the Code:
+
+  MOV CL, OO; store current memory location
+  
+LOOP:
+
+  MOV BL, [CL];
+  CMP BL, 00;   check if 00
+  JNZ OTHER;    if not jump to other 
+  INC AL;
+
+OTHER:
+
+  CMP CL, FF;
+  JZ END;
+  INC CL
+  JMP LOOP;
+  
+END:
+
+  END;
