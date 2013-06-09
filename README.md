@@ -6,4 +6,8 @@ Assembly Language Tutorials
 
 =====
 
-These are some solutions to Sample tutorials for revision of CA296 exam
+These are some solutions to Sample tutorials for revision of my CA296 exam
+
+My lecturers simulator:
+
+http://www.computing.dcu.ie/~kcasey/asm/simulator.html#/
