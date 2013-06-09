@@ -1,0 +1,19 @@
+//Write a program to multiply a number by 2 serveral times (you decide) using a SHL
+//instruction. At What point does the multiplication no longer happen correctly?
+
+Start of code :
+
+
+  MOV AL,5; the number that will be multiplied
+  MOV BL,3; the amount of times the loop will be run i.e. multiply times
+  
+LOOP:
+  SHL AL; multiplying AL once
+  DEC BL; decrementing BL
+  JNZ LOOP; loop jump
+  
+END;
+
+
+//When BL reaches 0 the loop will end i.e. making the multiplication no longer 
+//happen correctly
