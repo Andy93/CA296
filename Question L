@@ -1,0 +1,20 @@
+//Write a program to turn on all the LEDs on the Multiple LED device from right to left , one-by-one, Finished when
+//all lights are on
+
+//Start of Code:
+
+  MOV BL, 01; move 1 into BL
+  MOV AL, 00; set AL to 00
+  
+LOOP:
+
+  CMP BL, 00; check if BL has shifted all values
+  JZ END;     if so jump to end
+  ADD AL, BL; otherwise add BL to AL
+  OUT 11;     output to the display
+  SHL BL;     shift BL one place left
+  JMP LOOP;   loop back
+  
+END:
+ 
+  END;
