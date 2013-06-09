@@ -1,0 +1,13 @@
+//Write a program to Flip AL between the values C0 and 4F in a loop
+//Don't use CMP instruction, use XOR
+
+//Start of Code :
+
+  MOV CL,C0; put C0 into CL reg
+  MOV DL,8F; put 4F into DL reg
+
+LOOP:
+  XOR CL,DL; CL XOR'd with DL will give 4F
+  JMP LOOP; keeps flipping between them
+  
+END;
