@@ -1,0 +1,37 @@
+//Write the code for a Watchdog timer . How does a monitored process kick the dog ? 
+
+//Start of Code:
+
+  JMP MAIN;
+  DB 60; Watchdog timer will live at 60
+  
+MAIN:
+
+  STI; enable interrupts 
+  
+LOOP:
+
+  MOV AL, 61; - A One
+  OUT 40;
+  MOV [00], AL; kick the dog
+  MOV AL, B7; - A Two
+  OUT 40;
+  MOV [00], AL; kick the dog
+  JMP LOOP;
+  
+  ORG 60; Watchdog timer will live at 60
+  CLI; disable interrupts
+  PUSHF; Backup registers
+  PUSH AL; 
+  MOV AL, [00];
+  CMP AL, 00; comparing AL to 00
+  JZ FINISH; if so loop
+  MOV AL, 00;
+  MOV [00], AL;
+  POP AL;
+  POPF; restore registers
+  IRET;
+  
+FINISH:
+
+  END;
