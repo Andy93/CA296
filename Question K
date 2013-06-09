@@ -1,0 +1,48 @@
+//Extension of last question , enable numeric keypad interrupt to count down by one everytime the keypad is pressed
+
+//Start of Code:
+
+  JMP START;
+  DB 00;
+  DB 60;
+
+START:
+
+  MOV BL, 90;
+  STI;
+  
+LOOP:
+  JMP LOOP; infinite loop
+  
+  ORG 60;
+  CLI;
+  MOV AL, [BL];
+  CMP AL, 00; check if null i.e. end of table marker
+  JZ FINISH;  if so its finish
+  OUT 20; display the didget
+  INC BL;
+  IRET;
+  
+FINISH:
+  
+  HALT
+  
+  
+  
+
+  ORG 90
+  DB F9; 9
+  DB FF; 8
+  DB 71; 7
+  DB DF; 6
+  DB DB; 5
+  DB E9; 4
+  DB F3; 3
+  DB B7; 2
+  DB 61; 1
+  DB 7F; 0
+  DB 00; END OF TABLE
+  
+END:
+  
+  END;
